@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <title>SmartLocker</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="box">
+            <div class="form">
+                <h2>Users' Data</h2>
+                <form>
+                    <div class="inputbox">
+                        <input type="text" value="" id="username" required>
+                        <span>Username</span>
+                    </div>
+                    <div class="inputbox">
+                        <input type="email" value="" id="email" required>
+                        <span>E-mail</span>
+                    </div>
+                    <div class="inputbox">
+                        <input type="text" value="" id="phone" required>
+                        <span>Phone Number</span>
+                    </div>
+                    <div class="imgbox">
+                        <input type="file" id="selfieFile" required>
+                        <span>Selfie Photo</span>
+                    </div>
+                    <input type="submit" value="submit" class="sub" id="submit">
+                </form>
+            </div>
+        </div>
+
+        <script type="module">
+            // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
+            import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-database.js";
+            import { getStorage, ref as storageRef, uploadBytes } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-storage.js";
+
+            // Your web app's Firebase configuration
+            const firebaseConfig = {
+                apiKey: "AIzaSyD_dTdWejxi9Uq6qnMHFqjoL2s4_WdXfWk",
+                authDomain: "smart-locker-cb27d.firebaseapp.com",
+                databaseURL: "https://smart-locker-cb27d-default-rtdb.firebaseio.com",
+                projectId: "smart-locker-cb27d",
+                storageBucket: "smart-locker-cb27d.appspot.com",
+                messagingSenderId: "507297342371",
+                appId: "1:507297342371:web:a86c6839429191faf77016"
+            };
+
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+
+            // Get references to Firebase services
+            const db = getDatabase(app);
+            const storage = getStorage(app);
+
+            document.getElementById("submit").addEventListener('click', async function(e){
+                e.preventDefault();
+
+                // Store a reference to the form and input fields
+                const form = document.querySelector('form');
+                const usernameInput = document.getElementById("username");
+                const emailInput = document.getElementById("email");
+                const phoneInput = document.getElementById("phone");
+                const selfieFileInput = document.getElementById("selfieFile");
+
+                // Check if any of the required fields are empty
+                if (usernameInput.value === "" || emailInput.value === "" || phoneInput.value === "" || !selfieFileInput.files[0]) {
+                    alert("Please fill out all fields and select a selfie photo.");
+                } else {
+                    // Upload the selfie photo to Firebase Storage
+                    const selfieRef = storageRef(storage, 'User_Photo/' + usernameInput.value);
+                    const selfieFile = selfieFileInput.files[0];
+
+                    try {
+                        await uploadBytes(selfieRef, selfieFile);
+                    } catch (error) {
+                        console.error("Error uploading selfie photo:", error);
+                        alert("Error uploading selfie photo. Please try again.");
+                        return;
+                    }
+
+                    // Set data in Firebase Realtime Database after validation
+                    set(ref(db, 'User_Data/' + usernameInput.value), {
+                        Username: usernameInput.value,
+                        Email: emailInput.value,
+                        PhoneNumber: phoneInput.value,
+                    })
+                    .then(() => {
+                        // Reset the form after successful submission
+                        form.reset();
+                        alert("Submit Successful!");
+                    })
+                    .catch((error) => {
+                        console.error("Error submitting data:", error);
+                        alert("Error submitting data. Please try again.");
+                    });
+                }
+            });
+        </script>
+    </body>
+</html>
