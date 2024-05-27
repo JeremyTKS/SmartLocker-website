@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(img/bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-direction: column;
+    padding: 0; /* Remove top padding to ensure perfect centering */
+}
+
+header {
+    text-align: center;
+    width: 100%;
+    padding: 20px 0;
+    background: none; /* No background */
+}
+
+header h1 {
+    font-size: 40px;
+    color: #fff;
+}
+
+header h2 {
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+}
+
+.box {
+    padding: 20px 30px;
+    max-width: 350px;
+    width: 90%;
+    backdrop-filter: blur(50px);
+    border-radius: 5px;
+    background: rgba(49, 49, 49, .2);
+    border: 1px solid rgba(255, 255, 255, .5);
+}
+
+.box .form {
+    padding: 10px 20px;
+}
+
+.box .form h2 {
+    text-align: center;
+    color: #fff;
+}
+
+.box .form form {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.box .form form .inputbox,
+.box .form form .imgbox {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.box .form form .inputbox input,
+.box .form form .imgbox input {
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    background: none;
+    border-bottom: 1px solid #ffffff;
+    color: #fff;
+    width: 100%;
+}
+
+.box .form form .inputbox span,
+.box .form form .imgbox span {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    font-size: 14px;
+    color: #fff;
+}
+
+.box .form form .sub {
+    padding: 10px 20px;
+    color: #fff;
+    border: none;
+    outline: none;
+    background: #0cc0df;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+/* Add media queries for different screen sizes */
+@media (max-width: 1200px) {
+    header h1 {
+        font-size: 35px;
+    }
+    header h2 {
+        font-size: 18px;
+    }
+    .box .form h2 {
+        font-size: 35px;
+    }
+    .box .form form .inputbox span,
+    .box .form form .imgbox span {
+        font-size: 12px;
+    }
+    .box .form form .sub {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 30px;
+    }
+    header h2 {
+        font-size: 16px;
+    }
+    .box {
+        max-width: 100%;
+    }
+    .box .form h2 {
+        font-size: 30px;
+    }
+    .box .form form .inputbox span,
+    .box .form form .imgbox span {
+        font-size: 12px;
+    }
+    .box .form form .sub {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 25px;
+    }
+    header h2 {
+        font-size: 14px;
+    }
+    .box {
+        padding: 10px 20px;
+        max-width: 300px;
+    }
+    .box .form h2 {
+        font-size: 25px;
+    }
+    .box .form form .inputbox span,
+    .box .form form .imgbox span {
+        font-size: 10px;
+    }
+    .box .form form .sub {
+        font-size: 12px;
+    }
+}
