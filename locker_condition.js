@@ -86,3 +86,9 @@ const canvasWidth = 2 * (lockerSize + spacing);
 const canvasHeight = 2 * (lockerSize + spacing * 2);
 canvas.width = canvasWidth;
 canvas.height = canvasHeight;
+
+// Add event listener for back button
+const backButton = document.getElementById('backButton');
+backButton.addEventListener('click', () => {
+    window.location.href = 'index.html'; // Redirect to index.html
+});

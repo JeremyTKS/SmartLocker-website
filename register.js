@@ -137,3 +137,9 @@ async function resizeImage(file) {
         reader.readAsDataURL(file);
     });
 }
+
+// Add event listener for back button
+const backButton = document.getElementById('backButton');
+backButton.addEventListener('click', () => {
+    window.location.href = 'index.html'; // Redirect to index.html
+});

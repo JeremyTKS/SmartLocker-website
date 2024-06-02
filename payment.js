@@ -116,3 +116,9 @@ document.getElementById('makePaymentBtn').addEventListener('click', async () => 
 
 // Initialize the user dropdown on page load
 window.onload = fetchUsernames;
+
+// Add event listener for back button
+const backButton = document.getElementById('backButton');
+backButton.addEventListener('click', () => {
+    window.location.href = 'index.html'; // Redirect to index.html
+});
