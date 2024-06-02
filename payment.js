@@ -77,7 +77,7 @@ function displayFee(data) {
             feeResult.textContent = 'Payment successful';
             document.getElementById('makePaymentBtn').disabled = true;
         } else {
-            feeResult.textContent = `The duration is ${durationMinutes} minutes.\nThe fee is $${fee}`;
+            feeResult.textContent = `The fee is $${fee}`;
         }
         // Enable the "Make Payment" button when fee information is displayed
         document.getElementById('makePaymentBtn').disabled = false;
