@@ -3,32 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartLocker</title>
+    <title>SmartLocker - Home</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <h1>Welcome to SmartLocker</h1>
+        <h2>Manage your locker efficiently</h2>
+    </header>
     <div class="box">
         <div class="form">
-            <h2>User Registration</h2>
-            <form>
-                <div class="inputbox">
-                    <input type="text" value="" id="username" required>
-                    <span>Username</span>
-                </div>
-                <div class="inputbox">
-                    <input type="email" value="" id="email" required>
-                    <span>E-mail</span>
-                </div>
-                <div class="inputbox">
-                    <input type="text" value="" id="phone" required>
-                    <span>Phone Number</span>
-                </div>
-                <div class="imgbox">
-                    <input type="file" id="selfieFile" required>
-                    <span>Selfie Photo</span>
-                </div>
-                <input type="submit" value="submit" class="sub" id="submit">
-            </form>
+            <h2>Select an Option</h2>
+            <div class="options">
+                <button id="registerButton" class="optionButton">New User Registration</button>
+                <button id="lockerButton" class="optionButton">Check Locker Condition</button>
+                <button id="paymentButton" class="optionButton">Make Payment</button>
+            </div>
         </div>
     </div>
 
