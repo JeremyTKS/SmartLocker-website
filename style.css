@@ -241,3 +241,22 @@ canvas {
     text-align: center;
     margin-bottom: 20px;
 }
+
+/* Add styles for the back button */
+.backButton {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background: #0047AB;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.backButton:hover {
+    background: #0990b1;
+}
