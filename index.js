@@ -7,6 +7,10 @@ document.addEventListener("DOMContentLoaded", function() {
         window.location.href = "locker_condition.html";
     });
 
+    document.getElementById("mylockerButton").addEventListener("click", function() {
+        window.location.href = "mylocker.html";
+    });
+
     document.getElementById("paymentButton").addEventListener("click", function() {
         window.location.href = "payment.html";
     });

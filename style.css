@@ -194,12 +194,14 @@ canvas {
     }
 }
 
+.mylocker-form h2,
 .payment-form h2 {
     text-align: center;
     color: #fff;
     margin-bottom: 20px;
 }
 
+.mylocker-form label,
 .payment-form label {
     font-size: 16px;
     color: #fff;
@@ -207,8 +209,8 @@ canvas {
     margin-bottom: 10px;
 }
 
-.payment-form select,
-.payment-form button {
+.mylocker-form input,
+.payment-form select {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -218,23 +220,36 @@ canvas {
     font-size: 16px;
 }
 
+.mylocker-form input{
+    background: rgb(255, 255, 255);
+    color: #000; /* Set the initial text color to black */
+}
+
 .payment-form select {
     background: rgba(255, 255, 255, 0.1);
     color: #000; /* Set the initial text color to black */
 }
 
-
+.mylocker-form button,
 .payment-form button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-size: 16px;
     background: #0047AB;
     color: #fff;
     cursor: pointer;
     transition: background 0.3s;
 }
 
+.mylocker-form button:hover,
 .payment-form button:hover {
     background: #0990b1;
 }
 
+.mylocker-form #userInfoResult,
 .payment-form #feeResult {
     font-size: 18px;
     color: #fff;
